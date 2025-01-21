@@ -1,4 +1,4 @@
-from utils import registry
+from pointmamba.utils import registry
 
 
 

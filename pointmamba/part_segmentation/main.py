@@ -14,7 +14,7 @@ import torch.optim as optim
 from timm.scheduler import CosineLRScheduler
 from pathlib import Path
 from tqdm import tqdm
-from dataset import PartNormalDataset
+from .dataset import PartNormalDataset
 
 seed = 42
 torch.manual_seed(seed)

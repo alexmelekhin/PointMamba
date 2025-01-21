@@ -2,16 +2,16 @@ import torch
 import torch.nn as nn
 import os
 import json
-from tools import builder
-from utils import misc, dist_utils
+from pointmamba.tools import builder
+from pointmamba.utils import misc, dist_utils
 import time
-from utils.logger import *
-from utils.AverageMeter import AverageMeter
+from pointmamba.utils.logger import *
+from pointmamba.utils.AverageMeter import AverageMeter
 
 from sklearn.svm import LinearSVC
 import numpy as np
 from torchvision import transforms
-from datasets import data_transforms
+from pointmamba.datasets import data_transforms
 from pointnet2_ops import pointnet2_utils
 
 train_transforms = transforms.Compose(

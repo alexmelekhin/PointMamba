@@ -2,10 +2,10 @@ import torch
 import torch.nn as nn
 import os
 import json
-from tools import builder
-from utils import misc, dist_utils
+from pointmamba.tools import builder
+from pointmamba.utils import misc, dist_utils
 import time
-from utils.logger import *
+from pointmamba.utils.logger import *
 
 import cv2
 import numpy as np

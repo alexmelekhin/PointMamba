@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import os
 from collections import abc
 from pointnet2_ops import pointnet2_utils
-from utils.logger import *
+from pointmamba.utils.logger import *
 
 
 def fps(data, number):

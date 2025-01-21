@@ -1,9 +1,9 @@
-from tools import pretrain_run_net as pretrain
-from tools import finetune_run_net as finetune
-from tools import test_run_net as test_net
-from utils import parser, dist_utils, misc
-from utils.logger import *
-from utils.config import *
+from pointmamba.tools import pretrain_run_net as pretrain
+from pointmamba.tools import finetune_run_net as finetune
+from pointmamba.tools import test_run_net as test_net
+from pointmamba.utils import parser, dist_utils, misc
+from pointmamba.utils.logger import *
+from pointmamba.utils.config import *
 import time
 import os
 import torch
@@ -47,15 +47,15 @@ def main():
             config.dataset.extra_train.others.bs = config.total_bs // world_size * 2
         config.dataset.val.others.bs = config.total_bs // world_size * 2
         if config.dataset.get('test'):
-            config.dataset.test.others.bs = config.total_bs // world_size 
+            config.dataset.test.others.bs = config.total_bs // world_size
     else:
         config.dataset.train.others.bs = config.total_bs
         if config.dataset.get('extra_train'):
             config.dataset.extra_train.others.bs = config.total_bs * 2
         config.dataset.val.others.bs = config.total_bs * 2
         if config.dataset.get('test'):
-            config.dataset.test.others.bs = config.total_bs 
-    # log 
+            config.dataset.test.others.bs = config.total_bs
+    # log
     log_args_to_file(args, 'args', logger = logger)
     log_config_to_file(config, 'config', logger = logger)
     # exit()
@@ -67,7 +67,7 @@ def main():
         misc.set_random_seed(args.seed, deterministic=args.deterministic) # seed + rank, for augmentation
     if args.distributed:
         assert args.local_rank == torch.distributed.get_rank()
-        
+
     # run
     if args.test:
         test_net(args, config)

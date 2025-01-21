@@ -7,13 +7,13 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from utils import misc
-from utils.checkpoint import get_missing_parameters_message, get_unexpected_parameters_message
-from utils.logger import *
+from pointmamba.utils import misc
+from pointmamba.utils.checkpoint import get_missing_parameters_message, get_unexpected_parameters_message
+from pointmamba.utils.logger import *
 from timm.models.layers import trunc_normal_
 from timm.models.layers import DropPath
 
-from extensions.chamfer_dist import ChamferDistanceL1, ChamferDistanceL2
+from pointmamba.extensions.chamfer_dist import ChamferDistanceL1, ChamferDistanceL2
 from mamba_ssm.modules.mamba_simple import Mamba
 
 try:

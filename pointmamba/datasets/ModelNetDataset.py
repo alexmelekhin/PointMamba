@@ -9,7 +9,7 @@ import pickle
 from tqdm import tqdm
 from torch.utils.data import Dataset
 from .build import DATASETS
-from utils.logger import *
+from pointmamba.utils.logger import *
 import torch
 
 warnings.filterwarnings('ignore')
@@ -162,7 +162,7 @@ class ModelNet(Dataset):
                 point_set = farthest_point_sample(point_set, self.npoints)
             else:
                 point_set = point_set[0:self.npoints, :]
-                
+
         point_set[:, 0:3] = pc_normalize(point_set[:, 0:3])
         if not self.use_normals:
             point_set = point_set[:, 0:3]
